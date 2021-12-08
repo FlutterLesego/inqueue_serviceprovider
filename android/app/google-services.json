@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "7379975343",
+    "firebase_url": "https://ridesharing-clone-default-rtdb.firebaseio.com",
+    "project_id": "ridesharing-clone",
+    "storage_bucket": "ridesharing-clone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7379975343:android:f888431b6ba5531325a85a",
+        "android_client_info": {
+          "package_name": "com.cardoskydweller.inqueue_service_provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7379975343-e8j2trjeq4dsnf5hmttd5kjecvp8frs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvn1HSjNs3OOW0yIIXtsZXWN8yxw8DQZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7379975343-e8j2trjeq4dsnf5hmttd5kjecvp8frs1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "7379975343-afrto9islir02uqhod79e5poaob68ne3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cardoskydweller.rider"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7379975343:android:d56e937bca294d8625a85a",
+        "android_client_info": {
+          "package_name": "com.cardoskydweller.rider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7379975343-e8j2trjeq4dsnf5hmttd5kjecvp8frs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvn1HSjNs3OOW0yIIXtsZXWN8yxw8DQZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7379975343-e8j2trjeq4dsnf5hmttd5kjecvp8frs1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "7379975343-afrto9islir02uqhod79e5poaob68ne3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cardoskydweller.rider"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7379975343:android:d1d64b823313ebd925a85a",
+        "android_client_info": {
+          "package_name": "com.example.inqueueserviceprovider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7379975343-e8j2trjeq4dsnf5hmttd5kjecvp8frs1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvn1HSjNs3OOW0yIIXtsZXWN8yxw8DQZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7379975343-e8j2trjeq4dsnf5hmttd5kjecvp8frs1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "7379975343-afrto9islir02uqhod79e5poaob68ne3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cardoskydweller.rider"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
