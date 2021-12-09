@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:inqueue/global/global.dart';
+import 'package:inqueue/pages/auth_screen.dart';
 import 'package:inqueue/widgets/queueswidget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -84,9 +85,10 @@ class Homescreen extends StatelessWidget {
                         fontWeight: FontWeight.bold))),
             const ListTile(),
             ListTile(
-                onTap: () {
-                  Navigator.pop(context);
-                  FirebaseAuth.instance.signOut();
+                onTap: () async {
+                  await FirebaseAuth.instance.signOut();
+                  Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => const AuthScreen()));
                 },
                 selectedTileColor: Colors.lightGreen,
                 leading: const Icon(
@@ -184,18 +186,6 @@ class Homescreen extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
                     color: Colors.black,
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Text(
-                  "10988 Cnr. George Lubbe & Moshoeshoe Street, Rocklands",
-                  style: TextStyle(
-                    fontFamily: "Montserrat",
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15,
-                    color: Colors.green,
                   ),
                 ),
               ],
