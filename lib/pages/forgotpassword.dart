@@ -124,6 +124,9 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                                     MaterialPageRoute(
                                         builder: (context) =>
                                             const AuthScreen()));
+                                Fluttertoast.showToast(
+                                    msg: "Email sent successfully!")
+                                ;
                               });
                             } catch (error) {
                               Fluttertoast.showToast(

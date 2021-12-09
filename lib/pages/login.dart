@@ -2,11 +2,14 @@
 
 // import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:inqueue/pages/forgotpassword.dart';
 //import 'package:inqueue/pages/homescreen.dart';
 import 'package:email_validator/email_validator.dart';
+import '../main.dart';
 import 'homescreen.dart';
 
 class LoginPage extends StatefulWidget {
@@ -190,58 +193,58 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ));
   }
-// void displayToastMsg(String message, BuildContext context) {
-//     Fluttertoast.showToast(msg: message);
-//   } // display toast
+void displayToastMsg(String message, BuildContext context) {
+    Fluttertoast.showToast(msg: message);
+  } // display toast
 
-//   final FirebaseAuth __firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth __firebaseAuth = FirebaseAuth.instance;
 
-//   void loginAndAuthenticateUser(BuildContext context) async {
-//     showDialog(
-//         context: context,
-//         barrierDismissible: false,
-//         builder: (BuildContext cntxt) {
-//           return const SnackBar(content: Text( "Company image required"));
-//         });
+  void loginAndAuthenticateUser(BuildContext context) async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext cntxt) {
+          return const SnackBar(content: Text( "Company image required"));
+        });
 
-//     final User? firebaseUser = (await __firebaseAuth
-//             .signInWithEmailAndPassword(
-//                 email: emailController.text,
-//                 password: passwordController.text)
-//             .catchError((errorMsg) {
-//       //Close Dialog
-//       Navigator.pop(context);
-//       displayToastMsg("errorMsg" + errorMsg.toString(), context);
-//     }))
-//         .user;
+    final User? firebaseUser = (await __firebaseAuth
+            .signInWithEmailAndPassword(
+                email: emailController.text,
+                password: passwordController.text)
+            .catchError((errorMsg) {
+      //Close Dialog
+      Navigator.pop(context);
+      displayToastMsg("errorMsg" + errorMsg.toString(), context);
+    }))
+        .user;
 
-//     //Check if user exists
-//     if (firebaseUser != null) {
-//       //Save data
-//       usersRef.child(firebaseUser.uid).once() //eventListener
-//           .then((DataSnapshot snap) {
-//         //If record exists in database
-//         if (snap.value != null) {
-//           //proceed to main screen
-//           Navigator.pushNamedAndRemoveUntil(
-//               context, Homescreen.routeName, (route) => false);
-//           displayToastMsg("User Logged In!!!", context);
-//         } else {
-//           Navigator.pop(context);
-//           //if record does exist, sign user out
-//           __firebaseAuth.signOut();
-//           displayToastMsg(
-//               "User not found. Please create new account.", context);
-//         }
-//       });
-//       //message
+    //Check if user exists
+    if (firebaseUser != null) {
+      //Save data
+      usersRef.child(firebaseUser.uid).once() //eventListener
+          .then((DataSnapshot snap) {
+        //If record exists in database
+        if (snap.value != null) {
+          //proceed to main screen
+          Navigator.pushNamedAndRemoveUntil(
+              context, Homescreen.routeName, (route) => false);
+          displayToastMsg("User Logged In!!!", context);
+        } else {
+          Navigator.pop(context);
+          //if record does exist, sign user out
+          __firebaseAuth.signOut();
+          displayToastMsg(
+              "User not found. Please create new account.", context);
+        }
+      });
+      //message
 
-//       //redirect
+      //redirect
 
-//     } else {
-//       Navigator.pop(context);
-//       //Error and display error message
-//       displayToastMsg("Error Occurred: User cannot be signed in.", context);
-//     }
-//   }
+    } else {
+      Navigator.pop(context);
+      //Error and display error message
+      displayToastMsg("Error Occurred: User cannot be signed in.", context);
+    }
+  }
 }

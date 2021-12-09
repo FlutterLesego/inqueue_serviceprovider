@@ -342,26 +342,14 @@ class _SignupState extends State<Signup> {
                               IconButton(
                                 padding: const EdgeInsets.only(top: 17),
                                 onPressed: () async {
-                                  // showDialog(
-                                  //       context: context,
-                                  //       builder: (c) {
-                                  //         return LoadingDialog(
-                                  //           message: "Account registration",
-                                  //         );
-                                  //       });
-                                  final form = formKey.currentState!;
+                                  final form = formKey.currentState;
 
-                                  if (form.validate()) {
+                                  if (form!.validate()) {
                                     if (imageXFile == null) {
-                                      showDialog(
-                                          context: context,
-                                          builder: (c) {
-                                            return const SnackBar(
-                                                content: Text(
-                                                    "Company image required"));
-                                          });
+                                      Fluttertoast.showToast(msg: "Company image required");
+                                      
                                     }
-                                    
+
                                     String fileName = DateTime.now()
                                         .millisecondsSinceEpoch
                                         .toString();
@@ -412,46 +400,6 @@ class _SignupState extends State<Signup> {
 
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  // void registerUser(BuildContext context) async {
-  //   //FirebaseUser was changed to User
-  //   final User? firebaseUser = (await _firebaseAuth
-  //           .createUserWithEmailAndPassword(
-  //               email: emailController.text,
-  //               password: passwordController.text)
-  //           .catchError((errorMsg) {
-  //     //Close Dialog
-  //     Navigator.pop(context);
-  //     displayToastMsg("errorMsg" + errorMsg.toString(), context);
-  //   }))
-  //       .user;
-
-  //   if (firebaseUser != null) {
-  //     //Save User To Database
-  //     Map userDataMap = {
-  //       "first name": firstnameController.text.trim(),
-  //       "last name": lastnameController.text.trim(),
-  //       "email": emailController.text.trim(),
-  //       "phone": phoneController.text,
-  //       "password": passwordController.text,
-  //     };
-  //     //Save data
-  //     usersRef.child(firebaseUser.uid).set(userDataMap);
-  //     //message
-  //     displayToastMsg("Congratulations!!!", context);
-  //     //redirect
-  //     Navigator.pushNamedAndRemoveUntil(
-  //         context, Homescreen.routeName, (route) => false);
-  //   } else {
-  //     //Close Dialog
-  //     Navigator.pop(context);
-  //     //Error and display error message
-  //     displayToastMsg("User has not been created", context);
-  //   }
-  // }
-
-  // void displayToastMsg(String message, BuildContext context) {
-  //   Fluttertoast.showToast(msg: message);
-  // } // display toast
 //register function
   void registerUser(String name, String phone, String email, String location,
       String password) async {
@@ -463,7 +411,7 @@ class _SignupState extends State<Signup> {
                 password: passwordController.text.trim())
             .then((value) => {postDetailsToFirestore()})
             .catchError((e) {
-            Navigator.pop(context);
+          Navigator.pop(context);
           Fluttertoast.showToast(msg: e!.message);
         });
       } on FirebaseAuthException catch (error) {
@@ -535,7 +483,8 @@ class _SignupState extends State<Signup> {
     await sharedPreferences!.setString("uid", user.uid);
     await sharedPreferences!.setString("email", user.email.toString());
     await sharedPreferences!.setString("name", nameController.text.trim());
-    await sharedPreferences!.setString("telephone", phoneController.text.trim());
+    await sharedPreferences!
+        .setString("telephone", phoneController.text.trim());
     await sharedPreferences!.setString("location", completeAddress.trim());
     await sharedPreferences!.setString("image url", serviceProviderImageUrl);
 
