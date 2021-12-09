@@ -1,5 +1,6 @@
 // ignore_for_file: sized_box_for_whitespace, deprecated_member_use, non_constant_identifier_names, prefer_const_literals_to_create_immutables, unused_import
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:inqueue/global/global.dart';
@@ -31,9 +32,10 @@ class Homescreen extends StatelessWidget {
           children: <Widget>[
             const DrawerHeader(
               margin: EdgeInsets.only(bottom: 50),
-              decoration: BoxDecoration(
-                  shape: BoxShape.rectangle, color: Colors.green),
-              child: Text("name",
+              decoration:
+                  BoxDecoration(shape: BoxShape.rectangle, color: Colors.green),
+              child: Text(
+                "name",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
@@ -84,6 +86,7 @@ class Homescreen extends StatelessWidget {
             ListTile(
                 onTap: () {
                   Navigator.pop(context);
+                  FirebaseAuth.instance.signOut();
                 },
                 selectedTileColor: Colors.lightGreen,
                 leading: const Icon(
@@ -145,15 +148,15 @@ class Homescreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
-        onPressed: (){
-           Navigator.pushNamed(context, AddNewService.routeName);
-
+        onPressed: () {
+          Navigator.pushNamed(context, AddNewService.routeName);
         },
-        child: const Icon(Icons.add,
-        color: Colors.white,),
+        child: const Icon(
+          Icons.add,
+          color: Colors.white,
+        ),
       ),
     );
-    
   }
 
   Widget QueuesWidget() {

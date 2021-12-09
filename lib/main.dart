@@ -45,24 +45,24 @@ class MyApp extends StatelessWidget {
                 ),
               ),
             );
-          }
-          else if(snapshot.hasError){ 
+          } else if (snapshot.hasError) {
             const MaterialApp(
               home: Scaffold(
-                body: Center(
-                  child: Text('Error occured!')),),);
+                body: Center(child: Text('Error occured!')),
+              ),
+            );
           }
           return MaterialApp(
-            initialRoute: (FirebaseAuth.instance.currentUser == null)
-            ? LoginPage.routeName
-            : Homescreen.routeName,
-            routes: {
-            Signup.routeName: (context) => const Signup(),
-            Homescreen.routeName: (context) => const Homescreen(),
-            LoginPage.routeName: (context) => const LoginPage(),
-            AuthScreen.routeName: (context) => const AuthScreen(),
-            AddNewService.routeName: (context) => const AddNewService(),
-            },
+              initialRoute: (FirebaseAuth.instance.currentUser == null)
+                  ? LoginPage.routeName
+                  : Homescreen.routeName,
+              routes: {
+                Signup.routeName: (context) => const Signup(),
+                Homescreen.routeName: (context) => const Homescreen(),
+                LoginPage.routeName: (context) => const LoginPage(),
+                AuthScreen.routeName: (context) => const AuthScreen(),
+                AddNewService.routeName: (context) => const AddNewService(),
+              },
               debugShowCheckedModeBanner: false,
               home: AnimatedSplashScreen(
                 duration: 3000,
